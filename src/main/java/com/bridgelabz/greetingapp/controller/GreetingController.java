@@ -11,7 +11,7 @@ import com.bridgelabz.greetingapp.model.Greeting;
 
 @RestController
 public class GreetingController {
-	private static final String template = "Hello, %s";
+	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 	
 	@RequestMapping("/greeting")
@@ -22,7 +22,7 @@ public class GreetingController {
 	@RequestMapping(value = {"/query"},method = RequestMethod.GET)
 	public Greeting greeting(@RequestParam (value="name",defaultValue="") String name,@RequestParam (value="firstName",defaultValue="") String firstName,@RequestParam (value="lastName",defaultValue="") String lastName) {
 		 
-		return new Greeting(counter.incrementAndGet(),String.format(template, name)+ firstName + " " + lastName);
+		return new Greeting(counter.incrementAndGet(),"Hello "+ name + firstName + " " + lastName);
 		
 	}
 	
