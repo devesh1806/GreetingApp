@@ -36,6 +36,11 @@ public class GreetingController {
 		greetingService.addGreeting( new Greeting(counter.incrementAndGet(),"Hello "+ name + firstName + " " + lastName));
 	}
 	
+	@PostMapping(value="/editGreeting/{id}")
+	public void editGretings(@PathVariable("id") long id,@RequestParam (value = "message") String message) {
+		greetingService.updateMessage(id,message);
+	}
+	
 	@RequestMapping(value = {"/get/{id}"},method = RequestMethod.GET)
 	public Greeting greeting(@PathVariable long id) {	 
 		return greetingService.findGreeting(id);

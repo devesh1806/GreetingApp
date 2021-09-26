@@ -27,4 +27,10 @@ public class GreetingService {
 		}
 		return all;
 	}
+	
+	public void updateMessage(long id, String message) {
+		for( Greeting x : greetingList) {
+			if (x.getId()==id) x.setMessage(message);
+		}
+	}
 }
