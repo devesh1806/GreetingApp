@@ -19,4 +19,12 @@ public class GreetingService {
 		}
 		return new Greeting(0, null);
 	}
+	
+	public String allMessage() {
+		String all = "";
+		for ( Greeting x : greetingList) {
+			all += x.toString();
+		}
+		return all;
+	}
 }

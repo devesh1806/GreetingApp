@@ -20,4 +20,9 @@ public class Greeting {
 	public void setMessage(String message) {
 		this.message = message;
 	}	
+	
+	@Override
+	public String toString() {
+		return message+"\n";
+	}
 }

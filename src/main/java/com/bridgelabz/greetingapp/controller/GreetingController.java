@@ -1,5 +1,6 @@
 package com.bridgelabz.greetingapp.controller;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,6 +39,11 @@ public class GreetingController {
 	@RequestMapping(value = {"/get/{id}"},method = RequestMethod.GET)
 	public Greeting greeting(@PathVariable long id) {	 
 		return greetingService.findGreeting(id);
+	}
+	
+	@RequestMapping(value = {"/getall"},method = RequestMethod.GET)
+	public String allMessages() {	 
+		return greetingService.allMessage();
 	}
 	
 }
