@@ -12,4 +12,11 @@ public class GreetingService {
 	public void addGreeting(Greeting greeting) {
 		greetingList.add(greeting);
 	}
+	
+	public Greeting findGreeting(long id) {
+		for ( Greeting x : greetingList) {
+			if (x.getId()==id) return x;
+		}
+		return new Greeting(0, null);
+	}
 }
