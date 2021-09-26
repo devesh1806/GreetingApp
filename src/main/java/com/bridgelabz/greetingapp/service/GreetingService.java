@@ -14,10 +14,7 @@ public class GreetingService {
 	}
 	
 	public Greeting findGreeting(long id) {
-		for ( Greeting x : greetingList) {
-			if (x.getId()==id) return x;
-		}
-		return new Greeting(0, null);
+		return greetingList.stream().filter(n->n.getId()==id).findFirst().get();
 	}
 	
 	public String allMessage() {
@@ -32,5 +29,9 @@ public class GreetingService {
 		for( Greeting x : greetingList) {
 			if (x.getId()==id) x.setMessage(message);
 		}
+	}
+	
+	public void deleteMessage(long id) {
+		greetingList.removeIf(n->n.getId()==id);
 	}
 }

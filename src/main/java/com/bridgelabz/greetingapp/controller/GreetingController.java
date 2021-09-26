@@ -3,6 +3,7 @@ package com.bridgelabz.greetingapp.controller;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,11 @@ public class GreetingController {
 	@RequestMapping(value = {"/getall"},method = RequestMethod.GET)
 	public String allMessages() {	 
 		return greetingService.allMessage();
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable long id) {
+		greetingService.deleteMessage(id);
 	}
 	
 }
